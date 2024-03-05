@@ -47,5 +47,14 @@ public class DressService {
         return dressesMapper.convertListsOfDressEntityToDressDisplayDto(dressEntities);
     }
 
+    public List<DressDisplayDto> getDressesByTypeAndSizeAndColorOrPrice(DressType type, Size size, Color color, Long price){
+        List<DressEntity> dressEntities = dressesRepository.findByTypeAndSizeAndColorOrPrice(type, size, color, price);
+        return dressesMapper.convertListsOfDressEntityToDressDisplayDto(dressEntities);
+    }
+
+    public List<DressDisplayDto> getDressesByPriceBetween(Long price1, Long Price2){
+        List<DressEntity> dressEntities = dressesRepository.findByPriceBetween(price1, Price2);
+        return dressesMapper.convertListsOfDressEntityToDressDisplayDto(dressEntities);
+    }
 
 }

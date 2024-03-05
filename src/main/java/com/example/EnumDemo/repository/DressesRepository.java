@@ -15,6 +15,6 @@ import java.util.List;
 public interface DressesRepository extends JpaRepository<DressEntity, Long> {
     List<DressEntity> findByBrandIn(String[] brands);
     List<DressEntity> findBySizeAndColorAndTypeAndPrice(Size size, Color color, DressType type, Long price);
-
-
+    List<DressEntity> findByTypeAndSizeAndColorOrPrice(DressType type, Size size, Color color, Long price);
+    List<DressEntity> findByPriceBetween(Long price1, Long Price2);
 }
