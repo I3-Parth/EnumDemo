@@ -14,10 +14,10 @@ import java.util.List;
 public class DressController {
     @Autowired
     DressService dressService;
-    @GetMapping
-    public List<DressDisplayDto> getAllDresses(){
-        return dressService.getAllDressEntities();
-    }
+//    @GetMapping
+//    public List<DressDisplayDto> getAllDresses(){
+//        return dressService.getAllDressEntities();
+//    }
 
     @GetMapping("/{id}")
     public DressDisplayDto getDressEntityById(@PathVariable(value = "id")Long id){
@@ -27,5 +27,11 @@ public class DressController {
     @PostMapping
     public DressDisplayDto createDressEntity(@RequestBody DressAdditionDto dressAdditionDto){
         return dressService.createDressEntity(dressAdditionDto);
+    }
+
+    @GetMapping
+    public List<DressDisplayDto> getDressesByBrands(@RequestParam(name = "brand", required = false)String[] brands){
+        if (brands == null) return dressService.getAllDressEntities();
+        else return dressService.getDressesByPrices(brands);
     }
 }
