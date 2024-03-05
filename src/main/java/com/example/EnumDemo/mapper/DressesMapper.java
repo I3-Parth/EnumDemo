@@ -35,4 +35,6 @@ public interface DressesMapper {
     DressDisplayDto convertDressEntityToDressDisplayDto(DressEntity dressEntity);
 
     List<DressDisplayDto> convertListsOfDressEntityToDressDisplayDto(List<DressEntity> dressEntity);
+
+    List<DressEntity> convertListOfDressAdditionDtoToDressEntity(List<DressAdditionDto> dressAdditionDtos);
 }

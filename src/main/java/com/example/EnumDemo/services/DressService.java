@@ -28,10 +28,10 @@ public class DressService {
         return dressesMapper.convertDressEntityToDressDisplayDto(dressesRepository.findById(id).orElseThrow(()-> new RuntimeException("Id "+id+" does not exist.")));
     }
 
-    public DressDisplayDto createDressEntity(DressAdditionDto dressAdditionDto){
-        DressEntity dressEntity = dressesMapper.convertDressAdditionDtoToDressEntity(dressAdditionDto);
-        this.dressesRepository.save(dressEntity);
-        return dressesMapper.convertDressEntityToDressDisplayDto(dressEntity);
+    public List<DressDisplayDto> createDressEntity(List<DressAdditionDto> dressAdditionDto){
+        List<DressEntity> dressEntity = dressesMapper.convertListOfDressAdditionDtoToDressEntity(dressAdditionDto);
+        this.dressesRepository.saveAll(dressEntity);
+        return dressesMapper.convertListsOfDressEntityToDressDisplayDto(dressEntity);
     }
 
     public List<DressDisplayDto> getDressesByPrices(String[] brands){
