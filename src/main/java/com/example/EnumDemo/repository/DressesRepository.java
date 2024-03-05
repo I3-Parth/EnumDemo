@@ -17,4 +17,7 @@ public interface DressesRepository extends JpaRepository<DressEntity, Long> {
     List<DressEntity> findBySizeAndColorAndTypeAndPrice(Size size, Color color, DressType type, Long price);
     List<DressEntity> findByTypeAndSizeAndColorOrPrice(DressType type, Size size, Color color, Long price);
     List<DressEntity> findByPriceBetween(Long price1, Long Price2);
+    List<DressEntity> findByPriceLessThan(Long price);
+    List<DressEntity> findByPriceGreaterThan(Long price);
+
 }

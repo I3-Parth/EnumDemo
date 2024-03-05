@@ -37,6 +37,8 @@ public class DressController {
         if(size != null && type != null && color != null && price != null) return dressService.getDressesBySizeAndColorAndTypeAndPrice(size, color, type, price);
         else if (brands != null ) return dressService.getDressesByPrices(brands);
         else if (price1 != null && price2 != null) return dressService.getDressesByPriceBetween(price1,price2);
+        else if (price1 != null) return dressService.getDressesByPriceGreaterThan(price1);
+        else if (price2 != null) return dressService.getDressesByPriceLessThan(price2);
         else return null;
     }
 
