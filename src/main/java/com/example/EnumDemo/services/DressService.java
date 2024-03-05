@@ -66,4 +66,9 @@ public class DressService {
         List<DressEntity> dressEntities = dressesRepository.findByPriceGreaterThan(price);
         return dressesMapper.convertListsOfDressEntityToDressDisplayDto(dressEntities);
     }
+
+    public List<DressDisplayDto> getDressesByColorNot(Color color){
+        List<DressEntity> dressEntities = dressesRepository.findByColorNot(color);
+        return dressesMapper.convertListsOfDressEntityToDressDisplayDto(dressEntities);
+    }
 }
