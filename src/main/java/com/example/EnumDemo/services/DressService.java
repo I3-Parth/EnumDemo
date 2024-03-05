@@ -2,6 +2,9 @@ package com.example.EnumDemo.services;
 
 import com.example.EnumDemo.dto.DressAdditionDto;
 import com.example.EnumDemo.dto.DressDisplayDto;
+import com.example.EnumDemo.enumPackage.Color;
+import com.example.EnumDemo.enumPackage.DressType;
+import com.example.EnumDemo.enumPackage.Size;
 import com.example.EnumDemo.mapper.DressesMapper;
 import com.example.EnumDemo.model.DressEntity;
 import com.example.EnumDemo.repository.DressesRepository;
@@ -38,4 +41,11 @@ public class DressService {
         List<DressEntity> dressEntities = dressesRepository.findByBrandIn(brands);
         return dressesMapper.convertListsOfDressEntityToDressDisplayDto(dressEntities);
     }
+
+    public List<DressDisplayDto> getDressesBySizeAndColorAndTypeAndPrice(Size size, Color color, DressType type, Long price){
+        List<DressEntity> dressEntities = dressesRepository.findBySizeAndColorAndTypeAndPrice(size, color, type, price);
+        return dressesMapper.convertListsOfDressEntityToDressDisplayDto(dressEntities);
+    }
+
+
 }
