@@ -21,9 +21,14 @@ public interface DressesMapper {
 
     default Size convertSizeIntToEnum(DressAdditionDto dressAdditionDto){
         int currentSize = dressAdditionDto.getSize();
-        if(currentSize<=30) return Size.S;
-        else if (currentSize>30 && currentSize<50) return Size.M;
-        else return Size.L;
+        Size size = null;
+        for(Size s: Size.values()){
+            if(currentSize >= s.getMinRange() && currentSize <= s.getMaxRange()){
+                size = s;
+                break;
+            }
+        }
+        return size;
     }
 
     @Mapping(source = "id", target = "id")

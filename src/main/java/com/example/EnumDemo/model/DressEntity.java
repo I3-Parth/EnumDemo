@@ -20,12 +20,15 @@ public class DressEntity {
     private String  brand;
 
     @Column(name = "type")
+    @Enumerated(EnumType.STRING)
     private DressType type;
 
     @Column(name = "size")
+    @Enumerated(EnumType.STRING)
     private Size size;
 
     @Column(name = "color")
+    @Enumerated(EnumType.STRING)
     private Color color;
 
     @Column(name = "price")
