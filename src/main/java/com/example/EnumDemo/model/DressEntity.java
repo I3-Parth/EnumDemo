@@ -6,7 +6,7 @@ import com.example.EnumDemo.enumPackage.Size;
 import jakarta.persistence.*;
 import lombok.*;
 @Entity
-@Table(name = "dress_table")
+@Table(name = "dress")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
