@@ -37,7 +37,7 @@ public class DressService {
         return dressesMapper.convertListsOfDressEntityToDressDisplayDto(dressEntity);
     }
 
-    public List<DressDisplayDto> getDressesByPrices(String[] brands){
+    public List<DressDisplayDto> getDressesByBrands(String[] brands){
         List<DressEntity> dressEntities = dressesRepository.findByBrandIn(brands);
         return dressesMapper.convertListsOfDressEntityToDressDisplayDto(dressEntities);
     }
