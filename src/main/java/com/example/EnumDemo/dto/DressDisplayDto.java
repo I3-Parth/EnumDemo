@@ -13,13 +13,10 @@ public class DressDisplayDto {
 
     private String  brand;
 
-    @Enumerated(EnumType.STRING)
     private DressType type;
 
-    @Enumerated(EnumType.STRING)
     private Size size;
 
-    @Enumerated(EnumType.STRING)
     private Color color;
 
     private Long price;
